@@ -25,7 +25,7 @@
 })>
 
 <public.values(
-    : allow(int)
+    : allow(int),
     : allow(mut))>{
     <init.public.variableSetup[
         create.variable(a);
