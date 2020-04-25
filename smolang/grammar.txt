@@ -1,0 +1,44 @@
+: "This is print"
+- This is comment
+
+- Printing Int
+: 1
+
+- Variables
+a[1]       - Int variable
+arr{1,2,3} - Int array
+s_var["string variable"]
+s_arr{"string", "array"}
+
+- Display array
+: arr{!}
+: s_arr{!}
+
+- Display specific in array
+- Does start with 0
+: arr{2}
+: s_arr{0}
+
+- Display Variables
+: a
+: s_var
+
+- Loops and what not
+- Keywords like while being "w" can be used for variables, () initiates them as functions
+w (condition):
+  - code here
+;
+
+i (condition):
+  - code here
+; ei (condition):
+  - code here
+; e:
+  - code here
+;
+
+- ops
+a[a += 1]
+a[a++]
+a[a--]
+- almost any op allowed
