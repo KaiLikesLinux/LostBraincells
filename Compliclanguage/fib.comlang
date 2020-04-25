@@ -1,0 +1,66 @@
+.initprogram ["fib.comlang"]
+
+<public.header({
+--# get.public(lib(standardIO))
+--# get.public(lib(standardVar))
+--# get.public(lib(standardProg))
+--# get.private(namespaces(standardProg))
+--# get.private(namespaces(standardVar.int))
+--# get.private(namespaces(standardIO))
+--# using.namespace(standardIO.ns)
+--# using.namespace(standardVar.int.ns)
+--# using.namespace(standardProg.ns)
+--# using.multiNamespace(: allow(all))
+
+    <public.header.notice(
+        devName: "Kai Lyons"
+        devContact: <kai.lyons@kaix.live>.email()
+        desc: "Fibonacci in a programming language invented by Satan"
+        license: _NULL.0
+        readmeFN: "./README"
+        depend: _NULL.0
+        objNotation: _NULL.0
+    )>
+
+})>
+
+<public.values(
+    : allow(int)
+    : allow(mut))>{
+    <init.public.variableSetup[
+        create.variable(a);
+        create.variable(b);
+    ]>{
+        value.variable(a)::int.mut = 0;
+        value.variable(b)::int.mut = 1;
+
+        mut.storeValues(tmp){
+            value.variable(a).temp;
+            value.variable(b).temp;
+        }
+    }
+}
+
+<public.class(init)>{
+    <init.public.functionSetup[
+        create.function(main);
+    ]>{
+        function.main(_NULL.0){
+            <private.rules.functionSetup*post(
+                : allow(get.variable[from.public(variable(a), variable(b))]),
+                : allow(push.variable[from.public(variable(a), variable(b))]),
+                : allow(use.namespace.rules),
+                : allow(use.namespace.titles),
+                : allow(shorten.variableSetup.remove(functionRequirement))
+            )>
+
+            sys.while(lessThan(a).to(1000000)){
+                sys.console.outputs(printLN(a));
+                return.changeVariable(a).newValue(originalValue(a) + b);
+                return.changeVariable(b).newValue(originalValue(b) + a);
+            }
+        }
+    }
+}
+
+.quitprogram ["fib.comlang"]
