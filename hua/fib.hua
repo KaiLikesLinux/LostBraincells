@@ -1,0 +1,28 @@
+#-- system.Program.include(<standard>)
+#-- system.Program.includeFrom(<standard>).include(int, str, io, null, bool)
+#-- system.Program.init("fib")-filename("fib.hua")
+
+system.Program.class(init){
+    system.Program.allow(){
+        doNamespaceIgnore = true
+        doUserspaceIgnore = true
+        doSemicolonOptional = false
+        doAllowInterprer = true
+    }
+  
+    system.Program.classVariables(){
+        int:variable.allowMutation(true) a = 0;
+        int:variable.allowMutation(true) b = 1;
+    }
+   
+    system.Program.subclass(main){
+        function(main()){
+            io.print(classVariable(a));
+            std.while(classVariable(a).isLessThan(1000000)){
+                int.change(classVariable(a) = classVariable(a) + classVariable(b))
+                int.change(classVariable(b) = classVariable(a) + classVariable(b))
+                io.print(classVariable(a))  
+            }
+        }
+    }
+}
